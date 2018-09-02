@@ -8,10 +8,10 @@ def write_log(date):
   f.writelines(date.isoformat() + '\n')
   f.close()
 
-def commit_github(date, origin):
+def commit_github(date):
   os.system('git add .')
   os.system('git commit --date={date} -m "Update {date}."'.format(date=date.isoformat()))
-  os.system('git push origin %s' % origin)
+  # os.system('git push origin %s' % origin)
 
 def transformation(date) -> datetime.date:
   return datetime.timedelta(hours=randint(0, 24), minutes=randint(0, 60), seconds=randint(0, 60))
@@ -35,17 +35,17 @@ if __name__ == "__main__":
 
   print('Please enter you want push the origin branch: ', end='')
 
-  commit_origin = input()
+  # commit_origin = input()
 
-  if commit_origin == '':
-    print('\033[31mPlease enter you want to push origin !!')
-    exit(1)
+  # if commit_origin == '':
+  #   print('\033[31mPlease enter you want to push origin !!')
+  #   exit(1)
 
   while commit_count > 0:
     date = datetime.datetime.strptime(commit_date, '%Y%m%d')
     date += transformation(date)
 
     write_log(date)
-    commit_github(date, commit_origin)
+    commit_github(date)
 
     commit_count -= 1
