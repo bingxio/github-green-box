@@ -46,6 +46,6 @@ if __name__ == "__main__":
     date += transformation(date)
 
     write_log(date)
-    commit_github(date.isoformat(), commit_origin)
+    commit_github(date, commit_origin)
 
     commit_count -= 1
