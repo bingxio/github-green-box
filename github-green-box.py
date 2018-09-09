@@ -33,7 +33,7 @@ if __name__ == "__main__":
     print('\033[31mPlease enter number and it greater than zero !!')
     exit(1)
 
-  print('Please enter you want push the origin branch: ', end='')
+  # print('Please enter you want push the origin branch: ', end='')
 
   # commit_origin = input()
 
