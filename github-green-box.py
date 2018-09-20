@@ -17,35 +17,36 @@ def transformation(date) -> datetime.date:
   return datetime.timedelta(hours=randint(0, 24), minutes=randint(0, 60), seconds=randint(0, 60))
 
 if __name__ == "__main__":
-  print('Please enter you want to commit date (like 20190902): ', end='')
+  while True:
+    print('Please enter you want to commit date (like 20190902): ', end='')
 
-  commit_date = input()
+    commit_date = input()
 
-  if commit_date == '' or len(commit_date) != 8:
-    print('\033[31mUnknown date, please enter the correct format !!')
-    exit(1)
+    if commit_date == '' or len(commit_date) != 8:
+      print('\033[31mUnknown date, please enter the correct format !!')
+      exit(1)
 
-  print('Please enter the number of times you want to commit, it must be a number value: ', end='')
+    print('Please enter the number of times you want to commit, it must be a number value: ', end='')
 
-  commit_count = int(input())
+    commit_count = int(input())
 
-  if commit_count <= 0:
-    print('\033[31mPlease enter number and it greater than zero !!')
-    exit(1)
+    if commit_count <= 0:
+      print('\033[31mPlease enter number and it greater than zero !!')
+      exit(1)
 
-  # print('Please enter you want push the origin branch: ', end='')
+    # print('Please enter you want push the origin branch: ', end='')
 
-  # commit_origin = input()
+    # commit_origin = input()
 
-  # if commit_origin == '':
-  #   print('\033[31mPlease enter you want to push origin !!')
-  #   exit(1)
+    # if commit_origin == '':
+    #   print('\033[31mPlease enter you want to push origin !!')
+    #   exit(1)
 
-  while commit_count > 0:
-    date = datetime.datetime.strptime(commit_date, '%Y%m%d')
-    date += transformation(date)
+    while commit_count > 0:
+      date = datetime.datetime.strptime(commit_date, '%Y%m%d')
+      date += transformation(date)
 
-    write_log(date)
-    commit_github(date)
+      write_log(date)
+      commit_github(date)
 
-    commit_count -= 1
+      commit_count -= 1
