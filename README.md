@@ -4,7 +4,7 @@ This python script can submit your GitHub block to fake all green.
 
 ## Usage
 
-Be careful, you need create a new floder and initialization git, then run script in floder.
+Be careful, you need create a new folder and initialization git, then run script in floder.
 
 The script create log.txt file and write it when you commit.
 
